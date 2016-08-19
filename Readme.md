@@ -52,3 +52,9 @@ Parsing an html table using perl:
 ```
 perl -pe "s/.*<tr><th><b>(.*): <\/b><\/th><th.*<\/th><td>(.*)<\/td><\/tr>/\"\1\":\"\2\"/gi"
 ```
+
+This is a thing I was working on, maybe it becomes something later
+```
+IFS=$(echo -en "\n\b");for i in $(last|awk '$4!~/^[0-9]/ {print $4 " " $5 " " $6 " 2015"}'); do node -e "var vdate = '$i';date = new
+ Date(vdate);console.log( (new Date).getTime() -  date.getTime())"; done
+```
