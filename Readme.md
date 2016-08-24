@@ -4,7 +4,15 @@ For mac, finding largest files:
 sudo du -hcx | perl -nle 'print "$_" IF(/^(\s|)(\d\.\d+G|\dG)/);' | sort -rnk1,1 
 ```
 
-Mac's have some interesting compatibility quirks with certain things in the *nix universe. And I believe I composed this particular one liner because the -P switch on grep is not valid on a mac. So what I do was a standard, what files with du -hcx, piped that to perl and used perl in lieu of grep -P so I could seperate, then pipe to sort, what I needed to do to find the largest files and directories on my mac. Ok so here is one on how to find bots / spiders / crawlers, in a certain time frame: 
+Mac's have some interesting compatibility quirks with certain things in the *nix universe. And I believe I composed this particular one liner because the -P switch on grep is not valid on a mac. So what I do was a standard, what files with du -hcx, piped that to perl and used perl in lieu of grep -P so I could seperate, then pipe to sort, what I needed to do to find the largest files and directories on my mac. 
+
+Ok so for linux, and again remember this is files over a gig, you might do:
+```
+sudo du -hcx | grep -P '\dG' | sort -rnk1,
+```
+
+
+Ok so here is one on how to find bots / spiders / crawlers, in a certain time frame: 
 
 ```
 cat /var/log/httpd/access_log | perl -nle 'print "$_" if(/02:0(\d):(\d+)/);' | egrep 'bot|crawl|spider'
