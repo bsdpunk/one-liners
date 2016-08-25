@@ -66,3 +66,15 @@ This is a thing I was working on, maybe it becomes something later
 IFS=$(echo -en "\n\b");for i in $(last|awk '$4!~/^[0-9]/ {print $4 " " $5 " " $6 " 2015"}'); do node -e "var vdate = '$i';date = new
  Date(vdate);console.log( (new Date).getTime() -  date.getTime())"; done
 ```
+
+
+Get all the repos of a user on github:
+```
+http https://api.github.com/users/bsdpunk/repos |python -m json.tool| grep '"name"' | awk -F: '{print $2}' | tr -d \" | tr -d , > repo
+```
+
+
+Then use that list to backup all your projects:
+```
+ for i in $(cat repos); do git clone https://github.com/bsdpunk/$i; done
+```
