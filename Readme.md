@@ -87,3 +87,9 @@ Some aliases for getting progress on dd:
 alias findd="ps aux | grep dd | grep 'if='"
 alias dprog='for i in $(findd |awk "{print $2}");do sudo kill -USR1 ;done'
 ```
+
+Check battery life(Fedora):
+```
+alias power="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
+```
+
