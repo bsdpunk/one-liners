@@ -93,3 +93,12 @@ Check battery life(Fedora):
 alias power="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 ```
 
+##Relative path
+```
+dirname $0
+```
+##Absolute path
+It is worth noting that the -f flag on readlink is GNU related and  may not be on BSD systems
+```
+readlink -f
+```
