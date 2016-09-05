@@ -102,3 +102,13 @@ It is worth noting that the -f flag on readlink is GNU related and  may not be o
 ```
 readlink -f
 ```
+
+
+#More Bash Stuff
+```
+cat /sys/class/backlight/acpi_video0/max_brightness
+sudo tee /sys/class/backlight/acpi_video0/brightness
+alias g='google-chrome &'
+alias gh='xclip -selection c -i ~/.gh'
+cat /etc/motd
+```
