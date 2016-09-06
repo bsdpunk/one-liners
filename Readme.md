@@ -112,3 +112,8 @@ alias g='google-chrome &'
 alias gh='xclip -selection c -i ~/.gh'
 cat /etc/motd
 ```
+curl replace
+
+```
+http --verify no GET https://mechanicalpinata.com/bullshit X-Auth-Token:shittoken content-type:application/json
+```
