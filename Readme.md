@@ -117,3 +117,17 @@ curl replace
 ```
 http --verify no GET https://mechanicalpinata.com/bullshit X-Auth-Token:shittoken content-type:application/json
 ```
+
+#Additions to my Bash Profile on Mac
+Git function that does all the git things, you add your update quote like EX: gitall 'update message'
+```
+gitall () { git add . && git commit -m "$@" && git push origin master;}
+```
+Count the csv cols
+```
+function csvcount () { head -n1 "$@" | grep -o , | tr -d "\n" | wc -c; }
+```
+Google Chrome shortcut, mostly I use this for images, via: google loc.png
+```
+alias google='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+```
