@@ -70,7 +70,7 @@ IFS=$(echo -en "\n\b");for i in $(last|awk '$4!~/^[0-9]/ {print $4 " " $5 " " $6
 
 Get all the repos of a user on github(replace bsdpunk):
 ```
-http https://api.github.com/users/bsdpunk/repos |python -m json.tool| grep '"name"' | awk -F: '{print $2}' | tr -d \" | tr -d , > repo
+http https://api.github.com/users/bsdpunk/repos |python -m json.tool| grep '"name"' | awk -F: '{print $2}' | tr -d \" | tr -d , > repos
 ```
 
 
