@@ -131,3 +131,14 @@ Google Chrome shortcut, mostly I use this for images, via: google loc.png
 ```
 alias google='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 ```
+
+
+
+#JESUS CHRIST
+Extended permissions on macs are nightmares
+```
+chflags noschg CrashPlan.app # this removes system immutable flag
+chflags nouchg CrashPlan.app # this removes the user immutable flags
+xattr -l filename
+xattr -d com.apple.FinderInfo
+```
