@@ -142,3 +142,8 @@ chflags nouchg CrashPlan.app # this removes the user immutable flags
 xattr -l filename
 xattr -d com.apple.FinderInfo
 ```
+
+##Get the last file saved in a dir
+```
+function ffile () { echo $(ls -t | head -n1); }
+```
