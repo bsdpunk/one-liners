@@ -155,3 +155,9 @@ keybase decrypt `ffile`
 ```
 function wet () { wget -nc -c -r -A'*.flv' -A'*mp4' -A'*mkv' -A'*wmv' -A'*webm' -A'*.mpg' -A'*.mov' -A'.gif' -A'.jpg' -A'.wmv' $@ ;}
 ```
+
+###Do something like
+```
+wet weirdo-porn.com/videos
+```
+
