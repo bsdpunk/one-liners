@@ -147,3 +147,11 @@ xattr -d com.apple.FinderInfo
 ```
 function ffile () { echo $(ls -t | head -n1); }
 ```
+###Then you could do something like
+```
+keybase decrypt `ffile`
+```
+##Wget Mirror, Recurse magic for video files
+```
+function wet () { wget -nc -c -r -A'*.flv' -A'*mp4' -A'*mkv' -A'*wmv' -A'*webm' -A'*.mpg' -A'*.mov' -A'.gif' -A'.jpg' -A'.wmv' $@ ;}
+```
