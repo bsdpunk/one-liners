@@ -32,6 +32,20 @@ Occasionally at my hosting job, some ubuntu boxes would just forget what happene
 cat /proc/mounts > /etc/mtab
 ```
 
+Total Ram:
+```bash
+free -m | grep "Mem:" | grep -o -P "Mem:\s+\d+" | grep -o -P "\d+"
+OR
+cat /proc/meminfo | grep MemTotal | awk '{print $2}'
+```
+
+Available Ram:
+```bash
+free -m | grep "buffers/" | awk -F"[:space:]+" '{print $5}' | grep -o -P "\d+$"
+OR
+cat /proc/meminfo | grep MemAvailable | awk '{print $2}'
+```
+
 List directories and sort them by largest:
 
 
@@ -153,7 +167,7 @@ keybase decrypt `ffile`
 ```
 ##Wget Mirror, Recurse magic for video files
 ```
-function wet () { wget -nc -c -r -A'*.flv' -A'*mp4' -A'*mkv' -A'*wmv' -A'*webm' -A'*.mpg' -A'*.mov' -A'.gif' -A'.jpg' -A'.wmv' $@ ;}
+function wet () { wget -nc -c -r -A'*.flv' -A'*mp4' -A'*mkv' -A'*wmv' -A'*webm' -A'*.mpg' -A'*.mov' -A'*.gif' -A'*.jpg' -A'*.wmv' $@ ;}
 ```
 
 ###Do something like
