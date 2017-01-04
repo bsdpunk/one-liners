@@ -174,7 +174,7 @@ function wet () { wget -nc -c -r -A'*.flv' -A'*mp4' -A'*mkv' -A'*wmv' -A'*webm' 
 ```
 wet weirdo-porn.com/videos
 ```
-##Open Unsecure Chrome that can do Cross Domain
+##Open Unsecure Chrome that can do Cross Domain - On Mac
 ```
 alias ug='sudo open -a /Applications/Google\ Chrome.app --args --disable-web-security --user-data-dir'
 ```
