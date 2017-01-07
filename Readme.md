@@ -178,3 +178,7 @@ wet weirdo-porn.com/videos
 ```
 alias ug='sudo open -a /Applications/Google\ Chrome.app --args --disable-web-security --user-data-dir'
 ```
+#Grep the titles out of an imdb page
+```
+curl http://www.imdb.com/name/nm0799777/  | grep '>.*</a></b>'
+```
