@@ -182,3 +182,16 @@ alias ug='sudo open -a /Applications/Google\ Chrome.app --args --disable-web-sec
 ```
 curl http://www.imdb.com/name/nm0799777/  | grep '>.*</a></b>'
 ```
+#Remove quotes from csv, and if there are commas in those quotes remove those as well
+
+So if you put this in your .bashrc / .bash_profile
+```
+function rqc () { awk -F'"' -v OFS='' '{ for (i=2; i<=NF; i+=2) gsub(",", "", $i) } 1' $@ ;}
+```
+You might run something like this
+```
+tinyLove:Downloads dusty$ cat test.csv
+"Heyo, comma",1,2,9879.232,"1,000","No comma",3
+tinyLove:Downloads dusty$ rqc test.csv
+Heyo comma,1,2,9879.232,1000,No comma,3
+```
