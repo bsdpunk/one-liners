@@ -185,10 +185,16 @@ curl http://www.imdb.com/name/nm0799777/  | grep '>.*</a></b>'
 #Remove quotes from csv, and if there are commas in those quotes remove those as well
 
 So if you put this in your .bashrc / .bash_profile
+For Linux:
 ```
-function rqc () { awk -F'"' -v OFS='' '{ for (i=2; i<=NF; i+=2) gsub(",", "", $i) } 1' $@ ;}
+function rqc () { awk -F'"' -v OFS='' '{ for (i=2; i<=NF; i+=2) gsub(",", "", $i) } 1' $@ | sed 's/"//g' ;}
 ```
-You might run something like this
+For Mac:
+```
+function rqc () { awk -F'"' -v OFS='' '{ for (i=2; i<=NF; i+=2) gsub(",", "", $i) } 1' $@ | gsed 's/"//g' ;}
+```
+
+##You might run something like this
 ```
 tinyLove:Downloads dusty$ cat test.csv
 "Heyo, comma",1,2,9879.232,"1,000","No comma",3
