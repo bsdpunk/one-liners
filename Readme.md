@@ -201,3 +201,9 @@ tinyLove:Downloads dusty$ cat test.csv
 tinyLove:Downloads dusty$ rqc test.csv
 Heyo comma,1,2,9879.232,1000,No comma,3
 ```
+
+
+##Change csv's value, using a csv of key value pairs
+```
+function fcsvt () { awk -F, -v file="$1" -v sq="'" '{system("gsed -i "sq"s/,"$1",/,"$2",/"sq" "file""); print $2}' $2; }
+```
