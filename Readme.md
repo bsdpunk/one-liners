@@ -207,3 +207,9 @@ Heyo comma,1,2,9879.232,1000,No comma,3
 ```
 function fcsvt () { awk -F, -v file="$1" -v sq="'" '{system("gsed -i "sq"s/,"$1",/,"$2",/"sq" "file""); print $2}' $2; }
 ```
+
+###rDNS check
+Start and end refer to the last octet numbers you wish to loop through
+```
+for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; done | grep addr
+```
