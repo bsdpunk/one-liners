@@ -211,5 +211,5 @@ function fcsvt () { awk -F, -v file="$1" -v sq="'" '{system("gsed -i "sq"s/,"$1"
 ###rDNS check
 Start and end refer to the last octet numbers you wish to loop through
 ```
-for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; done | grep addr
+for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; done | grep -F addr
 ```
