@@ -1,7 +1,7 @@
 For mac, finding largest files: 
 
 ```
-sudo du -hcx | perl -nle 'print "$_" IF(/^(\s|)(\d\.\d+G|\dG)/);' | sort -rnk1,1 
+sudo du -hcx | perl -nle 'print "$_" if(/^(\s|)(\d\.\d+G|\dG)/);' | sort -rnk1,1 
 ```
 
 Mac's have some interesting compatibility quirks with certain things in the *nix universe. And I believe I composed this particular one liner because the -P switch on grep is not valid on a mac. So what I do was a standard, what files with du -hcx, piped that to perl and used perl in lieu of grep -P so I could seperate, then pipe to sort, what I needed to do to find the largest files and directories on my mac. 
