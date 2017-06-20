@@ -213,3 +213,9 @@ Start and end refer to the last octet numbers you wish to loop through
 ```
 for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; done | grep -F addr
 ```
+
+###Find movies in subdirectories and Play them
+```
+function findmovies () { printf "find $(pwd) -type f \\( -name \"*mpg\" $(cat filetypes | ggrep -P -o "A\'\*\w+" | gsed "s/A'\*\([a-z0-9]\+\)/\-o \-name \"\*\1\" /"| tr -d '\n')" | gsed 's/$/ \\) \-exec mpv {} +/'; }
+function playmovies () { eval "$(findmovies)";  }
+```
