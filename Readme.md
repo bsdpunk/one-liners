@@ -215,7 +215,15 @@ for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; don
 ```
 
 ###Find movies in subdirectories and Play them
+Linux
 ```
-function findmovies () { printf "find $(pwd) -type f \\( -name \"*mpg\" $(cat filetypes | ggrep -P -o "A\'\*\w+" | gsed "s/A'\*\([a-z0-9]\+\)/\-o \-name \"\*\1\" /"| tr -d '\n')" | gsed 's/$/ \\) \-exec mpv {} +/'; }
+function findmovies () { printf "find $(pwd) -type f \\( -name \"*mpg\" $(cat filetypes | grep -P -o "A\'\*\w+" | sed "s/A'\*\([a-z0-9]\+\)/\-o \-name \"\*\1\" /"| tr -d '\n')" | sed 's/$/ \\) \-exec mpv {} +/'; }
 function playmovies () { eval "$(findmovies)";  }
 ```
+Mac
+```
+
+function findmovies () { printf "find $(pwd) -type f \\( -name \"*mpg\" $( cat ~/filetypes | grep -o "A\'\*[A-Za-z0-9]\+'" | sed -e "s/A'\*\([a-zA-Z0-9]\{1,\}\)'/\-o \-name \"\*\1\" /" | tr -d '\n')" | sed 's/$/ \\) \-exec mpv {} +/'; }
+function playmovies () { eval "$(findmovies)";  }
+```
+
