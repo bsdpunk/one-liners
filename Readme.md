@@ -1,4 +1,4 @@
-For mac, finding largest files: 
+#For mac, finding largest files: 
 
 ```
 sudo du -hcx | perl -nle 'print "$_" if(/^(\s|)(\d\.\d+G|\dG)/);' | sort -rnk1,1 
