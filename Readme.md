@@ -215,6 +215,8 @@ for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; don
 ```
 
 ###Find movies in subdirectories and Play them
+
+
 Linux
 ```
 function findmovies () { printf "find $(pwd) -type f \\( -name \"*mpg\" $(cat filetypes | grep -P -o "A\'\*\w+" | sed "s/A'\*\([a-z0-9]\+\)/\-o \-name \"\*\1\" /"| tr -d '\n')" | sed 's/$/ \\) \-exec mpv {} +/'; }
