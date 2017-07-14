@@ -107,18 +107,18 @@ Check battery life(Fedora):
 alias power="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 ```
 
-##Relative path
+## Relative path
 ```
 dirname $0
 ```
-##Absolute path
+## Absolute path
 It is worth noting that the -f flag on readlink is GNU related and  may not be on BSD systems
 ```
 readlink -f
 ```
 
 
-#More Bash Stuff
+# More Bash Stuff
 ```
 cat /sys/class/backlight/acpi_video0/max_brightness
 sudo tee /sys/class/backlight/acpi_video0/brightness
@@ -132,7 +132,7 @@ curl replace
 http --verify no GET https://mechanicalpinata.com/bullshit X-Auth-Token:shittoken content-type:application/json
 ```
 
-#Additions to my Bash Profile on Mac
+# Additions to my Bash Profile on Mac
 Git function that does all the git things, you add your update quote like EX: gitall 'update message'
 ```
 gitall () { git add . && git commit -m "$@" && git push origin master;}
@@ -148,7 +148,7 @@ alias google='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 
 
-#JESUS CHRIST
+# JESUS CHRIST
 Extended permissions on macs are nightmares
 ```
 chflags noschg CrashPlan.app # this removes system immutable flag
@@ -157,32 +157,32 @@ xattr -l filename
 xattr -d com.apple.FinderInfo
 ```
 
-##Get the last file saved in a dir
+## Get the last file saved in a dir
 ```
 function ffile () { echo $(ls -t | head -n1); }
 ```
-###Then you could do something like
+### Then you could do something like
 ```
 keybase decrypt `ffile`
 ```
-##Wget Mirror, Recurse magic for video files
+## Wget Mirror, Recurse magic for video files
 ```
 function wet () { wget -nc -c -r -A'*.flv' -A'*mp4' -A'*mkv' -A'*wmv' -A'*webm' -A'*.mpg' -A'*.mov' -A'*.gif' -A'*.jpg' -A'*.wmv' $@ ;}
 ```
 
-###Do something like
+### Do something like
 ```
 wet weirdo-porn.com/videos
 ```
-##Open Unsecure Chrome that can do Cross Domain - On Mac
+## Open Unsecure Chrome that can do Cross Domain - On Mac
 ```
 alias ug='sudo open -a /Applications/Google\ Chrome.app --args --disable-web-security --user-data-dir'
 ```
-#Grep the titles out of an imdb page
+# Grep the titles out of an imdb page
 ```
 curl http://www.imdb.com/name/nm0799777/  | grep '>.*</a></b>'
 ```
-#Remove quotes from csv, and if there are commas in those quotes remove those as well
+# Remove quotes from csv, and if there are commas in those quotes remove those as well
 
 So if you put this in your .bashrc / .bash_profile
 For Linux:
@@ -194,7 +194,7 @@ For Mac:
 function rqc () { awk -F'"' -v OFS='' '{ for (i=2; i<=NF; i+=2) gsub(",", "", $i) } 1' $@ | gsed 's/"//g' ;}
 ```
 
-##You might run something like this
+## You might run something like this
 ```
 tinyLove:Downloads dusty$ cat test.csv
 "Heyo, comma",1,2,9879.232,"1,000","No comma",3
@@ -203,18 +203,18 @@ Heyo comma,1,2,9879.232,1000,No comma,3
 ```
 
 
-##Change csv's value, using a csv of key value pairs
+## Change csv's value, using a csv of key value pairs
 ```
 function fcsvt () { awk -F, -v file="$1" -v sq="'" '{system("gsed -i "sq"s/,"$1",/,"$2",/"sq" "file""); print $2}' $2; }
 ```
 
-###rDNS check
+### rDNS check
 Start and end refer to the last octet numbers you wish to loop through
 ```
 for i in {$START..END}; do host -t ptr $FIRSTTHREEOCTETS.$i $SERVERTOCHECK ; done | grep -F addr
 ```
 
-###Find movies in subdirectories and Play them
+### Find movies in subdirectories and Play them
 
 
 Linux
