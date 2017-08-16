@@ -233,3 +233,8 @@ function playmovies () { eval "$(findmovies)";  }
 sudo zpool import
 sudo zpool import -f d01
 ```
+
+### Find and delete files in a directory and below, that are lower than 10MB
+```
+find . -type f -size -10M -exec rm -rf {} +/
+```
