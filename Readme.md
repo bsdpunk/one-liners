@@ -228,4 +228,8 @@ Mac
 function findmovies () { printf "find $(pwd) -type f \\( -name \"*mpg\" $( cat ~/filetypes | grep -o "A\'\*[A-Za-z0-9]\+'" | sed -e "s/A'\*\([a-zA-Z0-9]\{1,\}\)'/\-o \-name \"\*\1\" /" | tr -d '\n')" | sed 's/$/ \\) \-exec mpv {} +/'; }
 function playmovies () { eval "$(findmovies)";  }
 ```
-
+### Import zfs drive on mac/linux, replace d01 with your pool name
+``` 
+sudo zpool import
+sudo zpool import -f d01
+```
