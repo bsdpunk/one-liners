@@ -238,3 +238,14 @@ sudo zpool import -f d01
 ```
 find . -type f -size -10M -exec rm -rf {} +/
 ```
+## RabbitMQ
+
+### Create exchange with $USER and $PASS
+```
+curl -i -u $USER:$PASS -H "content-type:application/json"     -XPUT -d'{"type":"direct","durable":true}'     http://10.1.10.200:15672/api/exchanges/%2ftest/signal-exchange
+```
+
+### Create God Like rabbitmq user on $VHOST
+```
+rabbitmqctl set_permissions -p $VHOST bsdpunk ".*" ".*" ".*"
+```
