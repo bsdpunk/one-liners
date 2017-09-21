@@ -36,7 +36,7 @@ Total Ram:
 ```bash
 free -m | grep "Mem:" | grep -o -P "Mem:\s+\d+" | grep -o -P "\d+"
 OR
-cat /proc/meminfo | grep MemTotal | awk '{print $2}'
+awk '/MemTotal/ {print $2}' /proc/meminfo
 ```
 
 Available Ram:
