@@ -34,14 +34,14 @@ cat /proc/mounts > /etc/mtab
 
 Total Ram:
 ```bash
-free -m | grep "Mem:" | grep -o -P "Mem:\s+\d+" | grep -o -P "\d+"
+free -k | grep "Mem:" | grep -o -P "Mem:\s+\d+" | grep -o -P "\d+"
 OR
 awk '/MemTotal/ {print $2}' /proc/meminfo
 ```
 
 Available Ram:
 ```bash
-free -m | grep "buffers/" | awk -F"[:space:]+" '{print $5}' | grep -o -P "\d+$"
+free -k | grep "buffers/" | awk -F"[:space:]+" '{print $5}' | grep -o -P "\d+$"
 OR
 cat /proc/meminfo | grep MemAvailable | awk '{print $2}'
 ```
