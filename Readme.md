@@ -249,3 +249,10 @@ curl -i -u $USER:$PASS -H "content-type:application/json"     -XPUT -d'{"type":"
 ```
 rabbitmqctl set_permissions -p $VHOST bsdpunk ".*" ".*" ".*"
 ```
+
+### NVM settings for bash
+```
+export PATH=$PATH:$GOROOT/bin:~/.nvm/versions/node/v8.6.0/bin
+export NVM_DIR="$HOME/.nvm" 
+alias nvminit='. $(brew --prefix nvm)/nvm.sh'
+```
