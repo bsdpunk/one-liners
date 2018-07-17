@@ -256,3 +256,12 @@ export PATH=$PATH:$GOROOT/bin:~/.nvm/versions/node/v8.6.0/bin
 export NVM_DIR="$HOME/.nvm" 
 alias nvminit='. $(brew --prefix nvm)/nvm.sh'
 ```
+
+### I need pidstat logging, that overwrites at the 24 hour hour mark, every five minutes
+I seem to remember crontab not liking when any, stderr or stdin, so this creates a log every five minutes, and after 24 hours they begin to overwrite themselves.
+Note: That within the date command substitution double quotes, with backslashes for the percentages.
+
+```
+*/5 * * * * /usr/bin/pidstat > /var/log/pidstat/pid.$(date "+\%H:\%M").log 2> /dev/null
+```
+
