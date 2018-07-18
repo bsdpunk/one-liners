@@ -265,3 +265,9 @@ Note: That within the date command substitution double quotes, with backslashes 
 */5 * * * * /usr/bin/pidstat > /var/log/pidstat/pid.$(date "+\%H:\%M").log 2> /dev/null
 ```
 
+### Port forwarding vcenter requires two ports
+You need sudo to use a standard port and if your key is on your non-root user, you need to specify your key. You need to port forward 80, because you have to go in on 80, you need to port forward 443, because you will be switched to port 443. It has to be on your port 443. 10.1.10.211 is the foreign server, and bastion.beastie.com is the intermediate server, you are sshing too.
+```
+sudo ssh -L 443:10.1.10.211:443 bsdpunk@bastion.beastie.com -N -i /Users/dusty/.ssh/id_rsa
+ssh -L 8888:10.1.10.211:80 bsdpunk@bastion.beastie.com -N
+```
