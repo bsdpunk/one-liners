@@ -271,3 +271,8 @@ You need sudo to use a standard port and if your key is on your non-root user, y
 sudo ssh -L 443:10.1.10.211:443 bsdpunk@bastion.beastie.com -N -i /Users/dusty/.ssh/id_rsa
 ssh -L 8888:10.1.10.211:80 bsdpunk@bastion.beastie.com -N
 ```
+### Ansible shortcut for AdHoc command
+```
+ashell command file match
+function ashell() { ansible -b -m shell -a "$1" -i "$2" "$3"; }
+```
