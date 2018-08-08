@@ -276,3 +276,9 @@ ssh -L 8888:10.1.10.211:80 bsdpunk@bastion.beastie.com -N
 ashell command file match
 function ashell() { ansible -b -m shell -a "$1" -i "$2" "$3"; }
 ```
+
+### Prep a pdf for Tesseract
+```
+convert -density 300 dc.pdf -depth 8 -strip -background white -alpha off file.tiff
+```
+
