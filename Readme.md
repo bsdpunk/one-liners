@@ -282,3 +282,13 @@ function ashell() { ansible -b -m shell -a "$1" -i "$2" "$3"; }
 convert -density 300 dc.pdf -depth 8 -strip -background white -alpha off file.tiff
 ```
 
+### Finding the differences in two files
+ There's no way this works. No money back guarantee. Forfiet all you have those who tread here.
+ 
+ missing file1 file2
+ 
+ Output is the difference of the two files.
+```
+ function missing() {     cat $1 <(cat $1 $2 ) <(cat $2 $1 | sort | uniq -c | tr -d ' ' | grep '^1' | sed 's/1//') | sort |  uniq -c | tr -d ' ' | grep '^2' | sed 's/2//'; }
+ ```
+ 
