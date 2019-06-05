@@ -292,3 +292,8 @@ convert -density 300 dc.pdf -depth 8 -strip -background white -alpha off file.ti
  function missing() {     cat $1 <(cat $1 $2 ) <(cat $2 $1 | sort | uniq -c | tr -d ' ' | grep '^1' | sed 's/1//') | sort |  uniq -c | tr -d ' ' | grep '^2' | sed 's/2//'; }
  ```
  
+### Add to the beggening of a file
+
+```
+sed -i '1 i\[' file
+```
