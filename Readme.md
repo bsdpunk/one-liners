@@ -297,3 +297,19 @@ convert -density 300 dc.pdf -depth 8 -strip -background white -alpha off file.ti
 ```
 sed -i '1 i\[' file
 ```
+
+
+### Docker shit
+
+
+kill all docker containers
+```
+function dockerkill { for i in $(sudo docker ps | awk '{ print $1 }' | sed 1d ); do echo $i; sudo docker kill $i; done; }
+```
+
+### ffmpeg shit
+
+Record, my second hd monitor, capture sound(make adjustments in pavucontrol)
+```
+function magicRec { ffmpeg -video_size 3440x1440 -framerate 25 -f x11grab -i  :0.0+1920,0 -f pulse -ac 2 -i default $1.flv;   }
+```
