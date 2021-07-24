@@ -1,0 +1,15 @@
+ffmpeg -ss 30 -t 3 -i ds9a.mp4 "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+ffmpeg -ss 30 -t 3 -i ds9a.mp4 -loop 0 output.gif
+ffmpeg -ss 30 -t 3 -i ds9a.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize
+ffmpeg -ss 30 -t 3 -i ds9a.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+ffmpeg -i ds9a.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+history| grep ffmpeg
+ffmpeg -i 80pw1mnpl3071.mp4  "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+ffmpeg -i 80pw1mnpl3071.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+ffmpeg -i lkj21tfiy4071.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+ffmpeg -i 2nqe8558t3071.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+ffmpeg -i ../maps/wevyi5b71w371.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+history | grep ffmpeg
+ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :1.0 -vf "drawtext=fontfile=/usr/share/fonts/truetype/roboto/unhinted/RobotoCondensed-Regular.ttf: timecode=09:57:00:00: r=25: \
+x=(w-tw)/2: y=h-(2*lh): fontcolor=white: box=1: boxcolor=0x00000000@1" timecode.mkv
+ffmpeg -f alsa -i pulse -f x11grab -show_region 1 -follow_mouse 100 -r 10 -s 960x540 -i :0.0+10,200 -acodec pcm_s16le -qscale 0 screencast.avi
