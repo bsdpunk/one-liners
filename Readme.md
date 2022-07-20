@@ -313,3 +313,8 @@ Record, my second hd monitor, capture sound(make adjustments in pavucontrol)
 ```
 function magicRec { ffmpeg -video_size 3440x1440 -framerate 25 -f x11grab -i  :0.0+1920,0 -f pulse -ac 2 -i default $1.flv;   }
 ```
+
+To Install Zoom first:
+```
+sudo apt install libxcb-xtest0
+```
